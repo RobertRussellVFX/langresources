@@ -1,0 +1,23 @@
+
+
+body {  
+    background-color: 	#101010;
+}
+
+/* The animation code */
+@keyframes example {
+    from {background-color: #181818;}
+    to {background-color: #080808;}
+  }
+  
+  /* The element to apply the animation to */
+  h1 {
+    border: 2px #eee solid;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    animation: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
