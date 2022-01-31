@@ -27,7 +27,6 @@ h1 {
   margin-bottom: 0px;
   margin-left: 0px;
   margin-right: 0px;
-  left: 50px;
   }
 
 .btn {
@@ -39,7 +38,7 @@ h1 {
   margin-left: 0px;
   margin-right: 0px;
   position: relative;
-  left: 145px; 
+  left: 20%; 
   top: 5px;
   }
 
