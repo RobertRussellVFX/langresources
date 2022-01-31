@@ -21,7 +21,7 @@ h1 {
     font-size: 35px;
     color: white;
     text-align: left;
-    line-height: 100px; 
+    line-height: 50px; 
     margin-top: 20px;
     margin-bottom: 0px;
     margin-left: 130px;
@@ -32,8 +32,8 @@ h1 {
     font-family: "Arial";
     font-size: 13px;
     color: white;
-    margin-top: 5px;
-    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 30px;
     margin-left: 0px;
     margin-right: 0px;
     position: relative;

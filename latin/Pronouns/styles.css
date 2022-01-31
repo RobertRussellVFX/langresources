@@ -19,27 +19,28 @@ p {
   }
 
 h1 {
-    font-family: "Arial";
-    font-size: 35px;
-    color: white;
-    text-align: left;
-    margin-top: 20px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
+  font-family: "Arial";
+  font-size: 35px;
+  color: white;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  left: 50px;
   }
 
 .btn {
-    font-family: "Arial";
-    font-size: 13px;
-    color: white;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    position: relative;
-    left: 0px; 
-    top: 5px;
+  font-family: "Arial";
+  font-size: 13px;
+  color: white;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  position: relative;
+  left: 145px; 
+  top: 5px;
   }
 
   a {
