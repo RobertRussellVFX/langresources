@@ -61,5 +61,6 @@ img {
   position: relative;
   left: -200px; 
   top: 10px;
+  filter: brightness(80%);
 }
 
