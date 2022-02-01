@@ -21,6 +21,7 @@ h1 {
     font-size: 35px;
     color: white;
     position: relative;
+    text-align: left;
     margin-top: 20px;
     margin-bottom: 0px;
     margin-left: 0px;
@@ -36,7 +37,7 @@ h1 {
     margin-left: 0px;
     margin-right: 0px;
     position: relative;
-    left: 20%; 
+    left: 19%; 
     top: 5px;
   }
 
