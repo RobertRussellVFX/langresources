@@ -59,6 +59,18 @@ img {
   position: relative;
   left: -200px; 
   top: 10px;
-  filter: brightness(80%);
+  filter: brightness(90%);
 }
+
+.Reflexives {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  position: relative;
+  left: -200px; 
+  top: 10px;
+  filter: brightness(100%);
+}
+
 
