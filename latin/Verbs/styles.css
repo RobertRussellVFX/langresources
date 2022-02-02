@@ -9,11 +9,10 @@ p {
   font-family: "Arial";
   font-size: 12px;
   color: white;
-  margin-top: 30px;
+  margin-top: 0px;
   margin-bottom: 0px;
-  margin-left: 250px;
-  margin-right: 0px;
-  position: relative;     
+  position: relative;
+  left: -200px;
 }
 
 h1 {
@@ -61,6 +60,6 @@ img {
   position: relative;
   left: -200px; 
   top: 10px;
-  filter: brightness(80%);
+  filter: brightness(90%);
 }
 
