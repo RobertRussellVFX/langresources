@@ -11,18 +11,16 @@ p {
   color: white;
   margin-top: 0px;
   margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  position: absolute;
-  bottom: 0px;
-  left: 45%; 
-  }
+  position: relative;
+  left: -200px;
+}
 
 h1 {
     font-family: "Arial";
     font-size: 35px;
     color: white;
-    text-align: center;
+    position: relative;
+    text-align: left;
     margin-top: 20px;
     margin-bottom: 0px;
     margin-left: 0px;
@@ -33,12 +31,35 @@ h1 {
     font-family: "Arial";
     font-size: 13px;
     color: white;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 0px;
     margin-left: 0px;
     margin-right: 0px;
     position: relative;
-    left: 275px;
+    text-align: left;
+    left: 20%; 
     top: 5px;
   }
+
+  a {
+    font-family: "Arial";
+    font-size: 12px;
+    color: white;
+    text-align: justify;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+img {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  position: relative;
+  left: -200px; 
+  top: 10px;
+  filter: brightness(90%);
+}
 
