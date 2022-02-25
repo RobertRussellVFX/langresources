@@ -1,0 +1,315 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="innerstyle.css" />
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="jquery.min.js"></script>
+<script src="popper.min.js" 
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+	crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<!--<script type="text/javascript" language="javascript"  src="jQuery.js"></script>-->
+<script type="text/javascript" language="javascript"  src="LatinVerbDrill.js"></script>
+<script type="text/javascript" language="javascript"  src="LatinVerbArr.js"></script>
+<script type="text/javascript" src="hitCount.js"></script>
+<script>
+function loadFunc() {
+preGetOpts();
+ajaxFunction('pronoun');
+};
+</script>
+</head>
+<body  onLoad="loadFunc();" style="background-color: rgb(17, 18, 39);">
+
+	<h1> Latin Verbs Drill </h1>
+
+	<a href="/latin/index.html"  class="btn btn-primary">Latin</a>
+
+    <a href="/latin/Vocab/index.html"  class="btn btn-primary">Vocabulary</a>
+
+    <a href="/latin/Verbs/index.html" class="btn btn-primary">Verbs</a>
+
+    <a href="/latin/Nouns/index.html" class="btn btn-primary">Nouns</a>
+
+    <a href="/latin/Pronouns/index.html" class="btn btn-primary">Pronouns</a>
+
+
+<div  class="container-fluid verbwrapper">
+
+
+
+	<style>
+        body {
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        @keyframes fadeInAnimation {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+<div class="row">
+<form name="checkform" method="post" action="#">
+
+<div class="row">
+<div class="col-md-4">
+<h4 class="ml-4">Choose a verb:</h4>
+<script language="JavaScript">
+
+document.write('<select class="lvd ml-4" name="selOpts" id="selOpts" onChange="getOpts(this.form);" size="4">');
+for (var i = 0; i < verbArr.length; i++) {
+	document.write('<option>' + verbArr[i] + '</option>'); 
+	}
+document.write('</select>');
+</script>
+</div>
+
+<div class="col-md-3">
+<h4>Choose a tense:</h4>
+<script language="JavaScript">
+
+document.write('<select class="lvd" name="tenseOpts" id="tenseOpts" onChange="getOpts(this.form);" size="4">');
+//"Clear();" size="4">');
+for (var i = 0; i < tenseArr.length; i++) {
+	document.write('<option>' + tenseArr[i] + '</option>'); 
+	}
+document.write('</select>');
+</script>
+</div>
+
+<div class="col-md-5">
+Data loaded for:&nbsp;  <input class="clearbutton" type="text" id="golab" size="50" value="None"/>
+</div>
+</div><!--row-->
+</div>
+
+<div class="row">
+<div class="col-md-3">
+<table>
+<tr><th>Active</th></tr>
+<tr>
+<td>
+<table> <!--c-->
+<tr><th>Person<span class="white">white</span></th><th>Indicative</th></tr>
+<tr><td>1st sing:</td><td><input class="lvd" type="text" name="frstSingAIa" id="frstSingAIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td>2nd sing:</td><td><input class="lvd" type="text" name="scndSingAIa" id="scndSingAIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td>3rd sing:</td><td><input class="lvd" type="text" name="thrdSingAIa" id="thrdSingAIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td height="10"><b></b></td></tr>
+<tr><td>1st plural:</td><td><input class="lvd" type="text" name="frstPlAIa" id="frstPlAIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td>2nd plural:</td><td><input class="lvd" type="text" name="scndPlAIa" id="scndPlAIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td>3rd plural:</td><td><input class="lvd" type="text" name="thrdPlAIa" id="thrdPlAIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td colspan="3" align="right"><input class="lvd" type="button" name="showbutton" value="Show correct" onClick="showCorrectAI();"></td></tr>
+</table> <!--c-->
+</td>
+
+<td id = "show1">
+<table> <!--d-->
+<tr><th class="hide white">-</th></tr>
+<tr><td><input class="lvd" type="text" name="frstSingAIb"size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="scndSingAIb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="thrdSingAIb" size="9"/></td>
+</tr>
+<tr><td height="10"><b></b></td></tr>
+<tr><td><input class="lvd" type="text" name="frstPlAIb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="scndPlAIb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="thrdPlAIb" size="9"/></td>
+</tr>
+<tr><td colspan="3"><input type="button" value="clear" onClick="hideCorrectAI();"></td></tr>
+</table> <!--d-->
+</td>
+</tr>
+</table>
+</div>
+
+<div class="col-md-3">
+<table>
+<tr><th>Active</th></tr>
+<tr>
+<!-- START Subjunctive -->
+<td>
+<table> <!--e-->
+<tr><th class="mobl">Person<span class="white">white</span></th><th>Subjunctive</th></tr>
+<tr><td class="mobl">1st sing.:</td><td><input class="lvd" type="text" name="frstSingASa" id="frstSingASa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">2nd sing.:</td><td><input class="lvd" type="text" name="scndSingASa" id="scndSingASa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">3rd sing.:</td><td><input class="lvd" type="text" name="thrdSingASa" id="thrdSingASa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td height="10"><b></b></td></tr>
+<tr><td class="mobl">1st plural:</td><td><input class="lvd" type="text" name="frstPlASa" id="frstPlASa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">2nd plural:</td><td><input class="lvd" type="text" name="scndPlASa" id="scndPlASa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">3rd plural:</td><td><input class="lvd" type="text" name="thrdPlASa" id="thrdPlASa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td colspan="3" align="right"><input class="lvd" type="button" name="showbutton" value="Show correct" onClick="showCorrectAS();"/></td></tr>
+</table> <!--e-->
+</td>
+
+<td>
+<div class="hidden">
+<table class="hidden" id = "show2"> <!--f-->
+<tr><th class="hide white">-</th></tr>
+<tr><td><input class="lvd" type="text" name="frstSingASb"size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="scndSingASb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="thrdSingASb" size="9"/></td>
+</tr>
+<tr><td height="10"><b></b></td></tr>
+<tr><td><input class="lvd" type="text" name="frstPlASb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="scndPlASb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="thrdPlASb" size="9"/></td>
+</tr>
+<tr><td colspan="3"><input type="button" value="clear" onClick="hideCorrectAS();"></td></tr>
+</table> <!--f-->
+</td>
+</tr>
+</table>
+</div>
+
+
+<div class="col-md-3">
+<table>
+<tr><th>Passive</th></tr>
+<tr>
+<td>
+<!--START Passive Indicative-->
+<table> <!--g-->
+
+<tr><th class="mobl">Person<span class="white">white</span></th><th>Indicative</th></tr>
+<tr><td class="mobl">1st sing.:</td><td><input class="lvd" type="text" name="frstSingPIa" id="frstSingPIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">2nd sing.:</td><td><input class="lvd" type="text" name="scndSingPIa" id="scndSingPIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">3rd sing.:</td><td><input class="lvd" type="text" name="thrdSingPIa" id="thrdSingPIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td height="10"><b></b></td></tr>
+<tr><td class="mobl">1st plural:</td><td><input class="lvd" type="text" name="frstPlPIa" id="frstPlPIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">2nd plural:</td><td><input class="lvd" type="text" name="scndPlPIa" id="scndPlPIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">3rd plural:</td><td><input class="lvd" type="text" name="thrdPlPIa" id="thrdPlPIa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td colspan="3"><input class="lvd" type="button" name="showbutton" value="Show correct" onClick="showCorrectPI();"/></td></tr>
+</table> <!--g-->
+</td>
+
+<td>
+<div class="hidden">
+<table class="hidden" id = "show3"> <!--h-->
+<tr><th class="hide white">-</th></tr>
+<tr><td><input class="lvd" type="text" name="frstSingPIb"size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="scndSingPIb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="thrdSingPIb" size="9"/></td>
+</tr>
+<tr><td height="10"><b></b></td></tr>
+<tr><td><input class="lvd" type="text" name="frstPlPIb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="scndPlPIb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="thrdPlPIb" size="9"/></td>
+</tr>
+<tr><td colspan="3"><input type="button" value="clear" onClick="hideCorrectPI();"></td></tr>
+</table> <!--h-->
+</div>
+</td>
+<td>
+</tr>
+</table>
+</div>
+
+
+<div class="col-md-3">
+<table>
+<tr><th>Passive</th></tr>
+<tr>
+<td>
+<!--START Passive Subjunctive-->
+<table> <!--i-->
+<tr><th class="mobl">Person<span class="white">white</span></th><th>Subjunctive</th></tr>
+<tr><td class="mobl">1st sing.:</td><td><input class="lvd" type="text" name="frstSingPSa" id="frstSingPSa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">2nd sing.:</td><td><input class="lvd" type="text" name="scndSingPSa" id="scndSingPSa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">3rd sing.:</td><td><input class="lvd" type="text" name="thrdSingPSa" id="thrdSingPSa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td height="10"><b></b></td></tr>
+<tr><td class="mobl">1st plural:</td><td><input class="lvd" type="text" name="frstPlPSa" id="frstPlPSa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">2nd plural:</td><td><input class="lvd" type="text" name="scndPlPSa" id="scndPlPSa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td class="mobl">3rd plural:</td><td><input class="lvd" type="text" name="thrdPlPSa" id="thrdPlPSa" size="9" onMouseOut="showcheck();"/></td>
+</tr>
+<tr><td colspan="3"><input class="lvd" type="button" name="showbutton" value="Show correct" onClick="showCorrectPS();"/></td></tr>
+</table> <!--i-->
+
+</td>
+
+<td>
+<div class="hidden">
+<table class="hidden" id = "show4"> <!--j-->
+<tr><th class="hide white">-</th></tr>
+<tr><td><input class="lvd" type="text" name="frstSingPSb"size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="scndSingPSb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="thrdSingPSb" size="9"/></td>
+</tr>
+<tr><td height="10"><b></b></td></tr>
+<tr><td><input class="lvd" type="text" name="frstPlPSb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="scndPlPSb" size="9"/></td>
+</tr>
+<tr><td><input class="lvd" type="text" name="thrdPlPSb" size="9"/></td>
+</tr>
+<tr><td colspan="3"><input type="button" value="clear" onClick="hideCorrectPS();"></td></tr>
+</table> <!--j-->
+</div>
+</td>
+</tr>
+
+</table><!--b-->
+</div>
+
+
+
+</div>
+<div class="row" id="clearbutton">
+
+<div class="col-md-6">
+</div>
+<div class="col-md-1">
+<input class="lvd" type="button" name="clearbutton" value="&nbsp;&nbsp;&nbsp;&nbsp;Reset&nbsp;&nbsp;&nbsp;&nbsp;" onClick="Clear();"/>
+</div>
+<div class="col-md-5">
+</div>
+</form>
+
+</div>
+<br/>
+</body>
+</html>
